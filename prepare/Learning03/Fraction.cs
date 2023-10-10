@@ -24,7 +24,7 @@ public class Fraction
     }
 
     // Getter top
-    public int GetTop()
+    private int GetTop()
     {
         return _top;
     }
@@ -36,7 +36,7 @@ public class Fraction
     }
 
     // Getter bottom
-    public int GetBottom()
+    private int GetBottom()
     {
         return _bottom;
     }
