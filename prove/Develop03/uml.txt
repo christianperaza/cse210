@@ -1,0 +1,36 @@
+class Scripture {
+- _text : List<Word>
+- _reference : string
+
+Scripture(reference :string, text : string)
+
++ HideWords(string word) : void
++ GetRenderedText() : string
++ IsCompletelyHidden() : void
+}
+
+ 
+
+class Reference {
+- _book : string
+- _chapter : int
+- _startVerse: int
+- _endVerse : int
+
+Reference()
+Reference(startVerse : string , endVerse : string)
+
++ RenderRef() : string
+}
+
+ 
+
+class Word {
+- _word: string;
+- _wordsHidden : bool
+
+Word(word)
+
++ HideWord() : void
++ ShowWord() : void
+}
