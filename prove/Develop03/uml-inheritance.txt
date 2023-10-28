@@ -1,0 +1,93 @@
+@startuml
+Activity <|-- BreathingActivity
+Activity <|-- ReflectActivity
+Activity <|-- ListingActivity
+
+ 
+
+class Activity
+{
+- _activityName: string
+- _description: string
+- _timer: int
+
+ 
+
++ Activity(activityName: string, description: string, timer: int)
++ DisplayMessage(): void
++ DisplayEndMessage(): void
++ PauseAnimation(): void
++ CounterAnimation(): void
+}
+
+ 
+
+class BreathingActivity
+{
+
+ 
+
+
++ BreathingActivity(activityName: string, description: string, timer: int) 
+: Base(activityName, description, timer)
++ RunBreathingActivity(): void
+}
+
+ 
+
+class ReflectActivity
+{
+- ReflectionPrompts: list<string>
+- Questions: list<strings>
+
+ 
+
++ ReflectActivity(activityName: string, description: string, timer: int, prompts: list<strings>, questions: list<strings>) 
+: Base(activityName, description, timer)
+
+ 
+
++ RunReflectActivity(): void
++ GetRandomPrompt(): string
++ GetRandomQuestion(): string
++ DisplayReflectionPrompt(): void
++ DisplayQuestion(): void
+
+ 
+
+}
+
+ 
+
+class ListingActivity
+{
+- Prompts: list<string>
+- _counter: int
+
+ 
+
++ ListingActivity(activityName: string, description: string, timer: int, prompts: List<strings>) 
+: Base(activityName, description, timer)
+
+ 
+
++ RunListingActivity(): void
++ GetRandomPrompt(): string
++ CountAnswers(): int
++ DisplayPrompt(): void
+}
+
+ 
+
+class Menu
+{
+
+ 
+
+
++ DisplayMenu(): void
+}
+
+ 
+
+@enduml
