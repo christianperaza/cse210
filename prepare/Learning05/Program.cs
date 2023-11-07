@@ -5,9 +5,9 @@ class Program
     static void Main(string[] args)
     {
         
-        Square square = new Square("blue", 4);
-        Rectangle rectangle = new Rectangle("red", 5, 5);
-        Circle circle = new Circle("yellow", 2);
+        Square square = new Square("Blue", 4);
+        Rectangle rectangle = new Rectangle("Red", 5, 5);
+        Circle circle = new Circle("Yellow", 2);
 
         List<Shape> shapes = new List<Shape>();
         shapes.Add(square);
@@ -19,8 +19,7 @@ class Program
             string color = shape.GetColor();
             double area = shape.GetArea();
 
-            Console.WriteLine(color);
-            Console.WriteLine(area);
+            Console.WriteLine($"{color} shape's area: {area}.");
         }
 
     }
