@@ -12,10 +12,6 @@ public abstract  class Shape
         return _color;
     }
 
-    public void SetColor(string color) {
-        _color = color;
-    }
-
     public abstract double GetArea();
 
     
