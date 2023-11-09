@@ -1,9 +1,5 @@
 public class Menu
 {
-    public Menu()
-    {
-        
-    }
     public void DisplayMenu()
     {
         Console.WriteLine("Menu Options:");
@@ -13,5 +9,8 @@ public class Menu
         Console.WriteLine("4. Load Goals");
         Console.WriteLine("5. Record Event");
         Console.WriteLine("6. Quit");
+
+        Console.WriteLine("\nSelect a choice from the menu");
+        Console.Write("> ");
     }
 }
