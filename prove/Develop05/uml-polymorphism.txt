@@ -1,0 +1,91 @@
+@startuml
+
+Goal <|-- Simple
+Goal <|-- Eternal
+Goal <|-- Checklist
+
+abstract class Goal
+{
+- _nameGoal : string
+- _descriptionGoal : string
+- _pointGoal : int
+- _typeGoal : string
+
+- _completedGoal : bool
+
+ 
++ Goal(nameGoal:string, descriptionGoal:string, pointGoal:int)
+
++ SetNameGoal() : void
++ GetNameGoal() : string
+
++ SetTypeGoal() : void
++ GetTypeGoal() : string
+
++ SetDescriptionGoal() : void
++ GetDescriptionGoal() : string
+
++ SetPointsGoal() : void
++ GetPointsGoal() : int
+
++ {abstract} RecordEvent() : int
++ {abstract} IsCompleted() : bool
+}
+
+
+class Simple
+{
++ Simple(nameGoal:string, descriptionGoal:string, pointGoal:int)
+
++ RecordEvent() : int
++ IsCompleted() : bool
+}
+
+
+class Eternal
+{
++ Eternal(nameGoal:string, descriptionGoal:string, pointGoal:int)
+
++ RecordEvent() : int
++ IsCompleted() : bool
+}
+
+ 
+
+class Checklist
+{
+- _timesToCheck : int
+- _bonusPoints : int
+
++ Checklist(nameGoal:string, descriptionGoal:string, pointGoal:int, bonusPoints:int, timesToCheck:int)
+
++ SetTimesToCheck() : void
++ GetTimesToCheck() : int
+
++ SetBonusPoints() : void
++ GetBonusPoints() : int
+
++ RecordEvent() : int
++ IsCompleted() : bool
+}
+
+class UserInterface
+{
+- _totalPoints : int
+- _listOfGoals : List<Goal>
+
++ UserInterface()
+
++ DisplayMainMenu() : void
++ DisplayTypesOfGoal() : void
+
++ DisplayListOfGoals() : void
+
++ SaveGoalsToFile() : void
+
++ LoadGoalsFromFile() : void
+
++ SumPoints(points:int) : int
+}
+
+@enduml

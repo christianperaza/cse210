@@ -4,15 +4,17 @@ class Program
 {
     static void Main(string[] args)
     {
-        int _totalPoints = 0;
-        
         Menu menu = new Menu();
         Goal goal = new Goal();
+
+        // Simple simple = new Simple();
+        // Eternal eternal = new Eternal();
+        // Checklist checklist = new Checklist();
 
         int menuChoice;
         do
         {
-            Console.WriteLine($"\nYou have {_totalPoints} points.\n");
+            goal.TotalPoints();
 
             menu.DisplayMenu();
             string menuInput = Console.ReadLine();
@@ -26,8 +28,24 @@ class Program
 
                 if (typeChoice == 1)
                 {
-                    goal.DisplayPrompts();
+                    goal.GoalPrompts();
+                    goal.PutGoalsInList();
+                }
+                else if (typeChoice == 2)
+                {
+                    goal.GoalPrompts();
+                    goal.PutGoalsInList();
                 } 
+                else if (typeChoice == 3)
+                {
+                    goal.GoalPrompts();
+                    goal.CheckGoalPrompts();
+                    goal.CheckPutGoalsInList();
+                } 
+            }
+            else if (menuChoice == 2)
+            {
+                goal.ListGoals();
             }
 
         } while (menuChoice != 6);
