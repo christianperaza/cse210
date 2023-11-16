@@ -1,74 +1,134 @@
 public class Goal
 {
-    private int _totalPoints = 0;
-    
     private string _nameGoal;
     private string _descriptionGoal;
-    private int _pointGoal;
+    private int _pointsGoal;
+    private string _typeGoal;
 
-    private int _timesCheck; //check
-    private int _bonusCheck; //check
+    private bool _completedGoal;
 
-    private List<string> _listOfGoals = new List<string>();
-
-    public void TotalPoints()
+    // name...
+    public void SetNameGoal()
     {
-        Console.WriteLine($"\nYou have {_totalPoints} points.\n");
-    }
-
-    public void GoalPrompts()
-    {
-        Console.WriteLine("");
         Console.Write("What is the name of your goal? ");
         _nameGoal = Console.ReadLine();
+    }
+    public string GetNameGoal()
+    {
+        return _nameGoal;
+    }
 
+    // description...
+    public void SetDescriptionGoal()
+    {
         Console.Write("What is a short description of it? ");
         _descriptionGoal = Console.ReadLine();
-        
+    }
+    public string GetDescriptionGoal()
+    {
+        return _descriptionGoal;
+    }
+
+    // points...
+    public void SetPointsGoal()
+    {
         Console.Write("What is the amount of points associated with this goal? ");
         string _userPoint = Console.ReadLine();
-        _pointGoal = int.Parse(_userPoint);
+        _pointsGoal = int.Parse(_userPoint);
     }
-
-    public void CheckGoalPrompts()
+    public int GetPointsGoal()
     {
-        Console.Write("How many times does this goal need to be accomplished for a bonus? ");
-        string _userTimes = Console.ReadLine();
-        _timesCheck = int.Parse(_userTimes);
-
-        Console.Write("Whats is the bonus for accomplishing it that many times? ");
-        string _userBonus = Console.ReadLine();
-        _bonusCheck = int.Parse(_userBonus);
+        return _pointsGoal;
     }
 
-    public void PutGoalsInList()
+    // promts...
+    public void DisplayGoalPrompts()
     {
-        string _goalInList = $"[ ] {_nameGoal} ({_descriptionGoal})";
-        _listOfGoals.Add(_goalInList);
+        SetNameGoal();
+        SetDescriptionGoal();
+        SetPointsGoal();
+
     }
 
-    public void CheckPutGoalsInList()
-    {
-        string _checkGoalInList = $"[ ] {_nameGoal} ({_descriptionGoal}) -- Currently completed: 0/{_timesCheck}";
-        _listOfGoals.Add(_checkGoalInList);
-    }
-
-    public void ListGoals()
-    {
-        int _number = 1;
-
-        Console.Write("\nThe goals are:");
-
-        for (int i = 0; i < _listOfGoals.Count; i++)
-        {
-            Console.Write($"\n{_number}. {_listOfGoals[i]}");
-
-            _number++;
-        }
-    }
-
-    
-
-
-    
 }
+
+
+
+
+
+
+
+// public class Goal
+// {
+//     // private int _totalPoints = 0;
+    
+//     // private string _nameGoal;
+//     // private string _descriptionGoal;
+//     // private int _pointGoal;
+
+//     // private int _timesCheck; //check
+//     // private int _bonusCheck; //check
+
+//     // private List<string> _listOfGoals = new List<string>();
+
+//     // public void TotalPoints()
+//     // {
+//     //     Console.WriteLine($"\nYou have {_totalPoints} points.\n");
+//     // }
+
+//     // public void GoalPrompts()
+//     // {
+//     //     Console.WriteLine("");
+//     //     Console.Write("What is the name of your goal? ");
+//     //     _nameGoal = Console.ReadLine();
+
+//     //     Console.Write("What is a short description of it? ");
+//     //     _descriptionGoal = Console.ReadLine();
+        
+//     //     Console.Write("What is the amount of points associated with this goal? ");
+//     //     string _userPoint = Console.ReadLine();
+//     //     _pointGoal = int.Parse(_userPoint);
+//     // }
+
+//     // public void CheckGoalPrompts()
+//     // {
+//     //     Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+//     //     string _userTimes = Console.ReadLine();
+//     //     _timesCheck = int.Parse(_userTimes);
+
+//     //     Console.Write("Whats is the bonus for accomplishing it that many times? ");
+//     //     string _userBonus = Console.ReadLine();
+//     //     _bonusCheck = int.Parse(_userBonus);
+//     // }
+
+//     // public void PutGoalsInList()
+//     // {
+//     //     string _goalInList = $"[ ] {_nameGoal} ({_descriptionGoal})";
+//     //     _listOfGoals.Add(_goalInList);
+//     // }
+
+//     // public void CheckPutGoalsInList()
+//     // {
+//     //     string _checkGoalInList = $"[ ] {_nameGoal} ({_descriptionGoal}) -- Currently completed: 0/{_timesCheck}";
+//     //     _listOfGoals.Add(_checkGoalInList);
+//     // }
+
+//     // public void ListGoals()
+//     // {
+//     //     int _number = 1;
+
+//     //     Console.Write("\nThe goals are:");
+
+//     //     for (int i = 0; i < _listOfGoals.Count; i++)
+//     //     {
+//     //         Console.Write($"\n{_number}. {_listOfGoals[i]}");
+
+//     //         _number++;
+//     //     }
+//     // }
+
+    
+
+
+    
+// }
