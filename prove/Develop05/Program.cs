@@ -57,23 +57,12 @@ class Program
             }
             else if (menuChoice == 3)
             {
-                Console.WriteLine("What is the filename for the goal file?");
-                Console.Write("> ");
+                userInterface.DisplayTitlesSaving();
                 string filename = Console.ReadLine();
 
                 foreach (Goal goal in goals)
                 {     
-                    string type = goal.GetTypeGoal();
-                    string name = goal.GetNameGoal();
-                    string description = goal.GetDescriptionGoal();
-                    int points = goal.GetPointsGoal();
-                    bool completed = goal.GetCompletedGoal();
-
-                    using (StreamWriter outputFile = File.AppendText(filename))
-                    {
-                        
-                        outputFile.WriteLine($"{type}:{name},{description},{points},{completed}");
-                    }   
+                    goal.SaveGoal(goal, filename);
                        
                 }
 

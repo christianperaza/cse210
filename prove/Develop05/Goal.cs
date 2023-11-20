@@ -1,4 +1,4 @@
-public class Goal
+public abstract class Goal
 {
     private string _nameGoal;
     private string _descriptionGoal;
@@ -73,6 +73,28 @@ public class Goal
         Console.Write("What is the amount of points associated with this goal? ");
         string _userPoint = Console.ReadLine();
         _pointsGoal = int.Parse(_userPoint);
+    }
+
+    public void SaveGoal(Goal goal, string filename)
+    {
+        string type = goal.GetTypeGoal();
+                    string name = goal.GetNameGoal();
+                    string description = goal.GetDescriptionGoal();
+                    int points = goal.GetPointsGoal();
+                    bool completed = goal.GetCompletedGoal();
+
+                    using (StreamWriter outputFile = File.AppendText(filename))
+                    {
+                        if (type == "Simple Goal")
+                        {
+                            outputFile.WriteLine($"{type}:{name},{description},{points},{completed}");
+                        }
+                        else if (type == "Eternal Goal")
+                        {
+                            outputFile.WriteLine($"{type}:{name},{description},{points}");
+                        }
+                        
+                    }   
     }
 
 

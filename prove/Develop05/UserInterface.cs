@@ -40,9 +40,12 @@ public class UserInterface
         
     }
 
-    public void SaveGoals()
+    public void DisplayTitlesSaving()
     {
-        
+        Console.WriteLine("What is the filename for the goal file?");
+        Console.Write("> ");
     }
+
+   
 
 }

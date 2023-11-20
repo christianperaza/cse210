@@ -1,2 +1,2 @@
-Simple Goal:gtt,hyh,5,False
-Eternal Goal:yhy,r,5,False
+Simple Goal:gg,hh,5,False
+Eternal Goal:rt,hj,6
