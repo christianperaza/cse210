@@ -69,8 +69,9 @@ class Program
                     int points = goal.GetPointsGoal();
                     bool completed = goal.GetCompletedGoal();
 
-                    using (StreamWriter outputFile = new StreamWriter(filename))
+                    using (StreamWriter outputFile = File.AppendText(filename))
                     {
+                        
                         outputFile.WriteLine($"{type}:{name},{description},{points},{completed}");
                     }   
                        
