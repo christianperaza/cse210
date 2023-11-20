@@ -1,0 +1,3 @@
+Simple Goal:vt,hy,5,False
+Eternal Goal:hyn,uj,5
+Checklist Goal:uj,th,7,1,5

@@ -10,6 +10,7 @@ class Program
         // Goal goal = new Goal();
         Simple simple = new Simple();
         Eternal eternal = new Eternal();
+        Checklist checklist = new Checklist();
 
         List<Goal> goals = new List<Goal>();
 
@@ -37,6 +38,13 @@ class Program
                     eternal.DisplayGoalPrompts();
                     goals.Add(eternal);
                 }
+                else if (goalChosen == 3)
+                {
+                    checklist.DisplayGoalPrompts();
+                    checklist.DisplayChecklistPrompts();
+                    goals.Add(checklist);
+                }
+
             }
             else if (menuChoice == 2)
             {
@@ -46,10 +54,9 @@ class Program
                 
                 foreach (Goal goal in goals)
                 {     
-
-                    string name = goal.GetNameGoal();
-                    string description = goal.GetDescriptionGoal();
-                    Console.WriteLine($"{n}. [ ] {name} ({description})");
+                    int timesToCheck = checklist.GetTimesToCheck();
+                    
+                    goal.DisplayListOfGoal(goal, n, timesToCheck);
 
                     n++;
                        
@@ -62,7 +69,11 @@ class Program
 
                 foreach (Goal goal in goals)
                 {     
-                    goal.SaveGoal(goal, filename);
+                    int timesToCheck = checklist.GetTimesToCheck();
+                    int bonus = checklist.GetBonusPoints();
+                    
+
+                    goal.SaveGoal(goal, filename, timesToCheck, bonus);
                        
                 }
 

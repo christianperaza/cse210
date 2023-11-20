@@ -75,26 +75,47 @@ public abstract class Goal
         _pointsGoal = int.Parse(_userPoint);
     }
 
-    public void SaveGoal(Goal goal, string filename)
+    public void DisplayListOfGoal(Goal goal, int n, int timesToCheck)
     {
         string type = goal.GetTypeGoal();
-                    string name = goal.GetNameGoal();
-                    string description = goal.GetDescriptionGoal();
-                    int points = goal.GetPointsGoal();
-                    bool completed = goal.GetCompletedGoal();
+        string name = goal.GetNameGoal();
+        string description = goal.GetDescriptionGoal();
 
-                    using (StreamWriter outputFile = File.AppendText(filename))
-                    {
-                        if (type == "Simple Goal")
-                        {
-                            outputFile.WriteLine($"{type}:{name},{description},{points},{completed}");
-                        }
-                        else if (type == "Eternal Goal")
-                        {
-                            outputFile.WriteLine($"{type}:{name},{description},{points}");
-                        }
+        if (type == "Simple Goal" || type == "Eternal Goal")
+        {      
+            Console.WriteLine($"{n}. [ ] {name} ({description})");
+        }
+        else if (type == "Checklist Goal")
+        {
+            Console.WriteLine($"{n}. [ ] {name} ({description}) -- Currently completed 0/{timesToCheck}");
+        }
+        
+    }
+
+    public void SaveGoal(Goal goal, string filename, int timesToCheck, int bonus)
+    {
+        string type = goal.GetTypeGoal();
+        string name = goal.GetNameGoal();
+        string description = goal.GetDescriptionGoal();
+        int points = goal.GetPointsGoal();
+        bool completed = goal.GetCompletedGoal();
+
+        using (StreamWriter outputFile = File.AppendText(filename))
+        {
+            if (type == "Simple Goal")
+            {
+                outputFile.WriteLine($"{type}:{name},{description},{points},{completed}");
+            }
+            else if (type == "Eternal Goal")
+            {
+                outputFile.WriteLine($"{type}:{name},{description},{points}");
+            }
+            else if (type == "Checklist Goal")
+            {
+                outputFile.WriteLine($"{type}:{name},{description},{points},{bonus},{timesToCheck}");
+            }
                         
-                    }   
+        }   
     }
 
 
