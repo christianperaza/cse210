@@ -1,10 +1,10 @@
 public class UserInterface
 {
+
     private int _totalPoints;
 
-    public UserInterface()
-    {
-    }
+
+    
 
     public void DisplayMainMenu()
     {
@@ -32,4 +32,17 @@ public class UserInterface
         Console.WriteLine("Which type of goal would you like to create?");
         Console.Write("> ");
     }
+
+    public void DisplayTitlesListGoals()
+    {
+        Console.Write("\nThe goals are:\n");
+
+        
+    }
+
+    public void SaveGoals()
+    {
+        
+    }
+
 }

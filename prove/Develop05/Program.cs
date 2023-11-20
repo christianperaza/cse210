@@ -6,8 +6,13 @@ class Program
     {
 
         UserInterface userInterface = new UserInterface();
-        Goal goal = new Goal();
+        // Goal goal = new Goal();
+        Simple simple = new Simple();
+        Eternal eternal = new Eternal();
 
+        List<Goal> goals = new List<Goal>();
+
+        
         int menuChoice;
         do
         {
@@ -23,70 +28,35 @@ class Program
 
                 if (goalChosen == 1)
                 {
-                    goal.DisplayGoalPrompts();
+                    simple.DisplayGoalPrompts();
+                    goals.Add(simple);
+                }
+                else if (goalChosen == 2)
+                {
+                    eternal.DisplayGoalPrompts();
+                    goals.Add(eternal);
                 }
             }
+            else if (menuChoice == 2)
+            {
+                userInterface.DisplayTitlesListGoals();
 
-        } while(menuChoice != 6);
+                int n = 1;
+                
+                foreach (Goal goal in goals)
+                {     
 
+                    string name = goal.GetNameGoal();
+                    string description = goal.GetDescriptionGoal();
+                    Console.WriteLine($"{n}. [ ] {name} ({description})");
+
+                    n++;
+                       
+                }
+            }
         
 
-
-
-
-
-
-
-
-
-        // Menu menu = new Menu();
-        // Goal goal = new Goal();
-
-        // // Simple simple = new Simple();
-        // // Eternal eternal = new Eternal();
-        // // Checklist checklist = new Checklist();
-
-        // int menuChoice;
-        // do
-        // {
-        //     goal.TotalPoints();
-
-        //     menu.DisplayMenu();
-        //     string menuInput = Console.ReadLine();
-        //     menuChoice = int.Parse(menuInput); 
-
-        //     if (menuChoice == 1)
-        //     {
-        //         menu.DisplayTypeOfGoals();
-        //         string typeInput = Console.ReadLine();
-        //         int typeChoice = int.Parse(typeInput);
-
-        //         if (typeChoice == 1)
-        //         {
-        //             goal.GoalPrompts();
-        //             goal.PutGoalsInList();
-        //         }
-        //         else if (typeChoice == 2)
-        //         {
-        //             goal.GoalPrompts();
-        //             goal.PutGoalsInList();
-        //         } 
-        //         else if (typeChoice == 3)
-        //         {
-        //             goal.GoalPrompts();
-        //             goal.CheckGoalPrompts();
-        //             goal.CheckPutGoalsInList();
-        //         } 
-        //     }
-        //     else if (menuChoice == 2)
-        //     {
-        //         goal.ListGoals();
-        //     }
-
-        // } while (menuChoice != 6);
-        
-
-        
+        } while(menuChoice != 6); 
 
     }
 }
