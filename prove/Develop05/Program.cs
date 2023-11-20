@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 class Program
 {
@@ -53,6 +54,30 @@ class Program
                     n++;
                        
                 }
+            }
+            else if (menuChoice == 3)
+            {
+                Console.WriteLine("What is the filename for the goal file?");
+                Console.Write("> ");
+                string filename = Console.ReadLine();
+
+                foreach (Goal goal in goals)
+                {     
+                    string type = goal.GetTypeGoal();
+                    string name = goal.GetNameGoal();
+                    string description = goal.GetDescriptionGoal();
+                    int points = goal.GetPointsGoal();
+                    bool completed = goal.GetCompletedGoal();
+
+                    Console.WriteLine($"[ ] {name} ({description})");
+
+                    using (StreamWriter outputFile = new StreamWriter(filename))
+                    {
+                        outputFile.WriteLine($"{type}:{name},{description},{points},{completed}");
+                    }   
+                       
+                }
+
             }
         
 

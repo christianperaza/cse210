@@ -7,7 +7,7 @@ public class Goal
 
     private bool _completedGoal;
 
-    // List<string> _listOfGoals = new List<string>();
+    
 
     public Goal(string type)
     {
@@ -53,6 +53,12 @@ public class Goal
         return _typeGoal;
     }
 
+    // completed?...
+    public bool GetCompletedGoal()
+    {
+        return _completedGoal;
+    }
+
     // promts...
     public void DisplayGoalPrompts()
     {
@@ -68,5 +74,10 @@ public class Goal
         string _userPoint = Console.ReadLine();
         _pointsGoal = int.Parse(_userPoint);
     }
+
+
+    
+
+    
 
 }
