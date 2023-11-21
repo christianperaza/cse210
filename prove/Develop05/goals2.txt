@@ -1,0 +1,4 @@
+770
+Simple Goal,Write in diary,I'll write in diary today,80,True
+Eternal Goal,Read scriptures,I'll read scriptures everyday,90
+Checklist Goal,Morning run,I'll run during two days,100,400,2,2

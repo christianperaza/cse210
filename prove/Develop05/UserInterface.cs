@@ -4,6 +4,7 @@ public class UserInterface
     private int _totalPoints;
     private string _level = "BRONZE";
 
+    // level...
     public void SetLevel()
     {
         if (_totalPoints > 100)
@@ -67,14 +68,14 @@ public class UserInterface
     }
 
     // saving...
-    public string Saving()
+    public string CreateFilenameToSave()
     {
         Console.WriteLine("\nWhat is the filename for the goal file?");
         Console.Write("> ");
         string filename = Console.ReadLine();
         return filename;
     }
-    public void SaveTotalPoints(string filename)
+    public void SaveTotalPointsInFile(string filename)
     {
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
@@ -147,12 +148,12 @@ public class UserInterface
     }
 
     // record event...
-    public void ChooseGoalToCompleted(Goal goal, int n)
+    public void DisplayNameOfGoalsList(Goal goal, int n)
     {
         string name = goal.GetNameGoal();           
         Console.WriteLine($"{n}. {name}");
     }
-    public void AskingGoal(List<Goal> goals)
+    public void AskWhichGoalYouCompleted(List<Goal> goals)
     {
         Console.Write("\nWhich goal did you accomplish? ");
         string goalAccomplished = Console.ReadLine();
@@ -164,18 +165,11 @@ public class UserInterface
         int point = goals[number - 1].RecordEvent();
         
         SumTotalPoints(point);
-    
     }
 
+    // sum points...
     public void SumTotalPoints(int points)
     {
         _totalPoints += points;
     }
-    public int ReturnTotalPoints()
-    {
-        return _totalPoints;
-    }
-
-   
-
 }

@@ -1,15 +1,46 @@
 public class Checklist : Goal
 {
-    private int _timesToCheck;
-    private int _bonusPoints;
-    private int _counterTimes;
-    private int _bonus0;
+    private int _timesToCheck; // times to check all
+    private int _bonusPoints; // bonus point
+    private int _counterTimes; // counter of times. Ex: counter/timesToCheck
+    private int _bonus0; // value 0. This variable is just to add until the user gain real bonus point
 
+    // constructor to set the type CHECKLIST...
     public Checklist(string type = "Checklist Goal") : base(type)
     {
-
     }
 
+    // times to check...
+    public void SetTimesToCheck(int times)
+    {
+        _timesToCheck =  times;
+    }
+    public int GetTimesToCheck()
+    {
+        return _timesToCheck;
+    }
+
+    // bonus point...
+    public void SetBonusPoints(int bonus)
+    {
+        _bonusPoints = bonus;
+    }
+    public int GetBonusPoints()
+    {
+        return _bonusPoints;
+    }
+
+    // counter of times...
+    public void SetCounterTimes(int counter)
+    {
+        _counterTimes = counter;
+    }
+    public int GetCounterTimes()
+    {
+        return _counterTimes;
+    }
+
+    // display prompts plus its own prompts...
     public void DisplayChecklistPrompts()
     {
         DisplayGoalPrompts();
@@ -23,36 +54,7 @@ public class Checklist : Goal
         _bonusPoints = int.Parse(_userBonus);
     }
 
-    // times...
-    public void SetTimesToCheck(int times)
-    {
-        _timesToCheck =  times;
-    }
-    public int GetTimesToCheck()
-    {
-        return _timesToCheck;
-    }
-
-    // bonus...
-    public void SetBonusPoints(int bonus)
-    {
-        _bonusPoints = bonus;
-    }
-    public int GetBonusPoints()
-    {
-        return _bonusPoints;
-    }
-
-    // counter...
-    public void SetCounterTimes(int counter)
-    {
-        _counterTimes = counter;
-    }
-    public int GetCounterTimes()
-    {
-        return _counterTimes;
-    }
-
+    // display list of goals and its own way...
     public override string DisplayListOfGoal()
     {
         if (_counterTimes == _timesToCheck)
@@ -66,6 +68,7 @@ public class Checklist : Goal
         return $"[{GetCheckGoal()}] {GetNameGoal()} ({GetDescriptionGoal()}) -- Currently completed {_counterTimes}/{_timesToCheck}";
     }
 
+    // save goal overrided...
     public override void SaveGoal(string filename)
     {
         using (StreamWriter outputFile = File.AppendText(filename))
@@ -74,16 +77,15 @@ public class Checklist : Goal
         }
     }
 
+    // is completed overrided...
     public override void IsCompleted()
     {
         SetCompletedGoal(true);
     }
 
-
-
+    // record event overrided...
     public override int RecordEvent()
     {
-
         if (GetCompletedGoal() == true)
         {
             _counterTimes++;

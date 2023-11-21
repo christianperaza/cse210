@@ -1,22 +1,17 @@
 public abstract class Goal
 {
-    private string _nameGoal;
-    private string _descriptionGoal;
-    private int _pointsGoal;
-    private string _typeGoal;
+    private string _nameGoal; // name of Goal
+    private string _descriptionGoal; // description of Goal
+    private int _pointsGoal; // points of Goal
+    private string _typeGoal; // type of Goal
+    private bool _completedGoal; // goal is completed? true or false?
+    private string _check; // check: [X] or []
 
-    private bool _completedGoal;
-
-    private string _check;
-
-
-    
-
+    // constructor to get the type: Simple, Eternal, or Checklist?
     public Goal(string type)
     {
         _typeGoal = type;
     }
-
 
     // name...
     public void SetNameGoal(string name)
@@ -91,7 +86,16 @@ public abstract class Goal
         _pointsGoal = int.Parse(_userPoint);
     }
 
-    // display list...
+    // sum total points
+    public int SumPoints(int points, int bonus)
+    {
+        return points + bonus;
+    }
+
+
+    // ---------- VIRTUAL AND ABSTRACT METHODS ---------- //
+
+    // display list... is virtual because Simple and Eternal use it, but Checklist override
     public virtual string DisplayListOfGoal()
     {
         if (_completedGoal == true)
@@ -102,11 +106,10 @@ public abstract class Goal
         {
             SetCheckGoal("");
         }
-        
         return $"[{GetCheckGoal()}] {GetNameGoal()} ({GetDescriptionGoal()})";
     }
 
-    // save...
+    // save... is abstract because each type of goal save their goals in a different way
     public abstract void SaveGoal(string filename);
 
     // is completed...
@@ -114,19 +117,4 @@ public abstract class Goal
     
     // record event...
     public abstract int RecordEvent();
-
-    // sum total points
-    public int SumPoints(int points, int bonus)
-    {
-        return points + bonus;
-    }
-    
-
-    
-
-
-    
-
-    
-
 }
