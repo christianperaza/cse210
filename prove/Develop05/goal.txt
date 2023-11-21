@@ -1,2 +1,3 @@
-Simple Goal:gg,hh,5,False
-Eternal Goal:rt,hj,6
+0
+Simple Goal,Write,I will write today,50,False
+Eternal Goal,Reading,I will reading scriptures everyday,20

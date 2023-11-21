@@ -7,6 +7,9 @@ public abstract class Goal
 
     private bool _completedGoal;
 
+    private string _check;
+
+
     
 
     public Goal(string type)
@@ -54,15 +57,28 @@ public abstract class Goal
     }
 
     // completed?...
+    public void SetCompletedGoal(bool completed)
+    {
+        _completedGoal = completed;
+    }
     public bool GetCompletedGoal()
     {
         return _completedGoal;
     }
 
+    // check...
+    public void SetCheckGoal(string check)
+    {
+        _check = check;
+    }
+    public string GetCheckGoal()
+    {
+        return _check;
+    }
+
     // promts...
     public void DisplayGoalPrompts()
     {
-
         Console.WriteLine("");
         Console.Write("What is the name of your goal? ");
         _nameGoal = Console.ReadLine();
@@ -75,24 +91,11 @@ public abstract class Goal
         _pointsGoal = int.Parse(_userPoint);
     }
 
-    public void DisplayListOfGoal(Goal goal, int n, int timesToCheck)
-    {
-        string type = goal.GetTypeGoal();
-        string name = goal.GetNameGoal();
-        string description = goal.GetDescriptionGoal();
-
-        if (type == "Simple Goal" || type == "Eternal Goal")
-        {      
-            Console.WriteLine($"{n}. [ ] {name} ({description})");
-        }
-        else if (type == "Checklist Goal")
-        {
-            Console.WriteLine($"{n}. [ ] {name} ({description}) -- Currently completed 0/{timesToCheck}");
-        }
-        
+    public virtual string DisplayListOfGoal(){
+        return $"[{GetCheckGoal()}] {GetNameGoal()} ({GetDescriptionGoal()})";
     }
 
-    public void SaveGoal(Goal goal, string filename, int timesToCheck, int bonus)
+    public void SaveGoal(Goal goal, string filename, int time, int bonus)
     {
         string type = goal.GetTypeGoal();
         string name = goal.GetNameGoal();
@@ -100,23 +103,39 @@ public abstract class Goal
         int points = goal.GetPointsGoal();
         bool completed = goal.GetCompletedGoal();
 
+
         using (StreamWriter outputFile = File.AppendText(filename))
         {
+
+            
+
+        
+
             if (type == "Simple Goal")
             {
-                outputFile.WriteLine($"{type}:{name},{description},{points},{completed}");
+                outputFile.WriteLine($"{type},{name},{description},{points},{completed}");
             }
             else if (type == "Eternal Goal")
             {
-                outputFile.WriteLine($"{type}:{name},{description},{points}");
+                outputFile.WriteLine($"{type},{name},{description},{points}");
             }
             else if (type == "Checklist Goal")
             {
-                outputFile.WriteLine($"{type}:{name},{description},{points},{bonus},{timesToCheck}");
+                outputFile.WriteLine($"{type},{name},{description},{points},{bonus},{time}");
             }
                         
         }   
     }
+
+    // display lits of goals to record event
+    public void ChooseGoalToCompleted(Goal goal, int n)
+    {
+        string name = goal.GetNameGoal();
+                    
+        Console.WriteLine($"{n}. {name}");
+    }
+
+    public abstract void RecordEvent();
 
 
     

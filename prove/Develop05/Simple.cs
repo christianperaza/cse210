@@ -10,4 +10,22 @@ public class Simple : Goal
 
 
 
+    // public void SetCheck(string check)
+    // {
+    //     base.SetCheckGoal();
+    // }
+
+
+    public override void RecordEvent()
+    {
+        if (GetCompletedGoal() == true)
+        {
+            SetCheckGoal("X");
+        }
+
+
+    }
+
+
+
 }

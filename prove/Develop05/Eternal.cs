@@ -4,4 +4,16 @@ public class Eternal : Goal
     {
 
     }
+
+
+
+    public override void RecordEvent()
+    {
+        if (GetCompletedGoal() == true)
+        {
+            SetCheckGoal("");
+        }
+
+
+    }
 }
