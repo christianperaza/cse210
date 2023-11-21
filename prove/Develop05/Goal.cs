@@ -91,41 +91,15 @@ public abstract class Goal
         _pointsGoal = int.Parse(_userPoint);
     }
 
-    public virtual string DisplayListOfGoal(){
+    // display list...
+    public virtual string DisplayListOfGoal()
+    {
         return $"[{GetCheckGoal()}] {GetNameGoal()} ({GetDescriptionGoal()})";
     }
 
-    public void SaveGoal(Goal goal, string filename, int time, int bonus)
-    {
-        string type = goal.GetTypeGoal();
-        string name = goal.GetNameGoal();
-        string description = goal.GetDescriptionGoal();
-        int points = goal.GetPointsGoal();
-        bool completed = goal.GetCompletedGoal();
+    // save...
+    public abstract void SaveGoal(string filename);
 
-
-        using (StreamWriter outputFile = File.AppendText(filename))
-        {
-
-            
-
-        
-
-            if (type == "Simple Goal")
-            {
-                outputFile.WriteLine($"{type},{name},{description},{points},{completed}");
-            }
-            else if (type == "Eternal Goal")
-            {
-                outputFile.WriteLine($"{type},{name},{description},{points}");
-            }
-            else if (type == "Checklist Goal")
-            {
-                outputFile.WriteLine($"{type},{name},{description},{points},{bonus},{time}");
-            }
-                        
-        }   
-    }
 
     // display lits of goals to record event
     public void ChooseGoalToCompleted(Goal goal, int n)

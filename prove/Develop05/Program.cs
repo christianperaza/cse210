@@ -7,7 +7,6 @@ class Program
     {
 
         UserInterface userInterface = new UserInterface();
-        Checklist checklist = new Checklist();
         List<Goal> goals = new List<Goal>();
 
         
@@ -16,7 +15,7 @@ class Program
         {
             menuChoice = userInterface.DisplayMainMenu();
             
-            // create...
+            // 1 create...
             if (menuChoice == 1)
             {
                 int goalChosen = userInterface.DisplayOptionGoals();
@@ -35,12 +34,13 @@ class Program
                 }
                 else if (goalChosen == 3)
                 {
+                    Checklist checklist = new Checklist();
                     checklist.DisplayChecklistPrompts();
                     goals.Add(checklist);
                 }
 
             }
-            // display list...
+            // 2 display list...
             else if (menuChoice == 2)
             {
                 userInterface.DisplayTitlesListGoals();
@@ -53,77 +53,27 @@ class Program
                     n++;   
                 }
             }
-            // save...
+            // 3 save...
             else if (menuChoice == 3)
             {
-                userInterface.DisplayTitlesSaving();
-                int totalPoints = userInterface.ReturnTotalPoints();
-                string filename = Console.ReadLine();
 
-                using (StreamWriter outputFile = File.AppendText(filename))
-                {
+                string filename = userInterface.Saving();
 
-                    outputFile.WriteLine($"{totalPoints}");
-                }
-        
+                userInterface.SaveTotalPoints(filename);
 
                 foreach (Goal goal in goals)
                 {  
-                    
-                    int time = checklist.GetTimesToCheck();
-                    int bonus = checklist.GetBonusPoints();
-
-
-
-                    goal.SaveGoal(goal, filename, time, bonus);
-                    
-                    
-                       
+                    goal.SaveGoal(filename);
                 }
 
             }
+            // 4 load...
             else if (menuChoice == 4)
             {
-                Console.Write("The name of your file? ");
-                string filename = Console.ReadLine();
+                string filename = userInterface.Loading();
 
-              
                 string[] lines = File.ReadAllLines(filename);
-
-                string total = lines[0];
-
-                for (int i = 1; i < lines.Length; i++)
-                {
-                    string[] parts = lines[i].Split(",");
-                    string type = parts[0];
-                    string name = parts[1];
-                    string desc = parts[2];
-                    string points = parts[3];
-                    int pointsInt = int.Parse(points);
-
-                    if (type == "Simple Goal")
-                    {
-                        string completed = parts[4].ToLower();
-                        bool completedBool = Convert.ToBoolean(completed);
-
-                        Simple simple = new Simple();
-                        simple.SetNameGoal(name);
-                        simple.SetDescriptionGoal(desc);
-                        simple.SetPointsGoal(pointsInt);
-                        simple.SetCompletedGoal(completedBool);
-                        goals.Add(simple);
-                    }
-                    else if (type == "Eternal Goal")
-                    {
-                        Eternal eternal = new Eternal();
-                        eternal.SetNameGoal(name);
-                        eternal.SetDescriptionGoal(desc);
-                        eternal.SetPointsGoal(pointsInt);
-                        goals.Add(eternal);
-                    }
-                    
-                }
-                
+                userInterface.LoadGoal(lines, goals);
             }
             else if (menuChoice == 5)
             {

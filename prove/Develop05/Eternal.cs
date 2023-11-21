@@ -5,6 +5,14 @@ public class Eternal : Goal
 
     }
 
+    public override void SaveGoal(string filename)
+    {
+        using (StreamWriter outputFile = File.AppendText(filename))
+        {
+            outputFile.WriteLine($"{GetTypeGoal()},{GetNameGoal()},{GetDescriptionGoal()},{GetPointsGoal()}");
+        }
+    }
+
 
 
     public override void RecordEvent()
