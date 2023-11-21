@@ -3,6 +3,7 @@ public class Checklist : Goal
     private int _timesToCheck;
     private int _bonusPoints;
     private int _counterTimes;
+    private int _bonus0;
 
     public Checklist(string type = "Checklist Goal") : base(type)
     {
@@ -54,6 +55,14 @@ public class Checklist : Goal
 
     public override string DisplayListOfGoal()
     {
+        if (_counterTimes == _timesToCheck)
+        {
+            SetCheckGoal("X");
+        }
+        else
+        {
+            SetCheckGoal("");
+        }
         return $"[{GetCheckGoal()}] {GetNameGoal()} ({GetDescriptionGoal()}) -- Currently completed {_counterTimes}/{_timesToCheck}";
     }
 
@@ -65,12 +74,29 @@ public class Checklist : Goal
         }
     }
 
-
-    public override void RecordEvent()
+    public override void IsCompleted()
     {
+        SetCompletedGoal(true);
+    }
+
+
+
+    public override int RecordEvent()
+    {
+
         if (GetCompletedGoal() == true)
         {
-            SetCheckGoal("X");
+            _counterTimes++;
+            Console.WriteLine($"\nCongratulations! You have earned {GetPointsGoal()}");
         }
+
+        if (_counterTimes == _timesToCheck)
+        {
+            SetCheckGoal("X");
+            _bonus0 = GetBonusPoints();
+            Console.WriteLine($"And plus! A bonus of {_bonus0}");
+        }
+
+        return SumPoints(GetPointsGoal(), _bonus0);
     }
 }

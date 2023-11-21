@@ -1,0 +1,4 @@
+650
+Simple Goal,Cooking,I will cook a dinner today,70,True
+Eternal Goal,Read handbook,I'll read a little of General Handbook each day,80
+Checklist Goal,Write,I'll write in my diary for three day,100,200,3,3

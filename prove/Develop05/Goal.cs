@@ -94,22 +94,35 @@ public abstract class Goal
     // display list...
     public virtual string DisplayListOfGoal()
     {
+        if (_completedGoal == true)
+        {
+            SetCheckGoal("X");
+        }
+        else
+        {
+            SetCheckGoal("");
+        }
+        
         return $"[{GetCheckGoal()}] {GetNameGoal()} ({GetDescriptionGoal()})";
     }
 
     // save...
     public abstract void SaveGoal(string filename);
 
+    // is completed...
+    public abstract void IsCompleted();
+    
+    // record event...
+    public abstract int RecordEvent();
 
-    // display lits of goals to record event
-    public void ChooseGoalToCompleted(Goal goal, int n)
+    // sum total points
+    public int SumPoints(int points, int bonus)
     {
-        string name = goal.GetNameGoal();
-                    
-        Console.WriteLine($"{n}. {name}");
+        return points + bonus;
     }
+    
 
-    public abstract void RecordEvent();
+    
 
 
     

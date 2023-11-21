@@ -13,14 +13,24 @@ public class Eternal : Goal
         }
     }
 
-
-
-    public override void RecordEvent()
+    public override void IsCompleted()
     {
-        if (GetCompletedGoal() == true)
+        SetCompletedGoal(false);
+    }
+
+
+
+
+    public override int RecordEvent()
+    {
+        if (GetCompletedGoal() == false)
         {
             SetCheckGoal("");
         }
+
+        Console.WriteLine($"\nCongratulations! You have earned {GetPointsGoal()}");
+
+        return SumPoints(GetPointsGoal(), 0);
 
 
     }

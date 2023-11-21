@@ -1,2 +1,0 @@
-0
-Checklist Goal,ch,de,50,500,3,0

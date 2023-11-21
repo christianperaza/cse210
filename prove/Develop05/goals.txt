@@ -1,7 +1,0 @@
-0
-Simple Goal,sim1,f,5,False
-Eternal Goal,et1,d,5
-Checklist Goal,ch1,f,4,6,5,0
-Simple Goal,sim2,g,6,False
-Eternal Goal,et2,l,8
-Checklist Goal,ch2,g,8,12,9,0

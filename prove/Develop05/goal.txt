@@ -1,3 +1,0 @@
-0
-Simple Goal,Write,I will write today,50,False
-Eternal Goal,Reading,I will reading scriptures everyday,20

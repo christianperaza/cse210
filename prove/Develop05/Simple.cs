@@ -1,8 +1,6 @@
 public class Simple : Goal
 {
 
-
-
     public Simple(string type = "Simple Goal") : base(type)
     {
 
@@ -17,15 +15,23 @@ public class Simple : Goal
         }
     }
 
-
-    public override void RecordEvent()
+    public override void IsCompleted()
     {
+        SetCompletedGoal(true);
+    }
+
+
+    public override int RecordEvent()
+    {
+
         if (GetCompletedGoal() == true)
         {
             SetCheckGoal("X");
         }
 
-
+        Console.WriteLine($"\nCongratulations! You have earned {GetPointsGoal()}");
+        return SumPoints(GetPointsGoal(), 0);
+        
     }
 
 

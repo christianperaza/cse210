@@ -2,11 +2,32 @@ public class UserInterface
 {
 
     private int _totalPoints;
+    private string _level = "BRONZE";
+
+    public void SetLevel()
+    {
+        if (_totalPoints > 100)
+        {
+            _level = "SILVER";
+        }
+
+        if (_totalPoints > 300)
+        {
+            _level = "GOLD";
+        }
+        
+        if (_totalPoints > 550)
+        {
+            _level = "DIAMOND";
+        }
+    }
 
     // menu...
     public int DisplayMainMenu()
     {
-        Console.WriteLine($"\nYou have {_totalPoints} points.\n");
+        SetLevel();
+        Console.WriteLine($"\nYou have {_totalPoints} points.");
+        Console.WriteLine($"You are level '{_level}'.\n");
 
         Console.WriteLine("Menu Options:");
         Console.WriteLine("  1. Create New Goal");
@@ -39,9 +60,10 @@ public class UserInterface
     }
 
     // list titles...
-    public void DisplayTitlesListGoals()
+    public int DisplayTitlesListGoals()
     {
         Console.Write("\nThe goals are:\n");
+        return 1;
     }
 
     // saving...
@@ -54,23 +76,23 @@ public class UserInterface
     }
     public void SaveTotalPoints(string filename)
     {
-        using (StreamWriter outputFile = File.AppendText(filename))
+        using (StreamWriter outputFile = new StreamWriter(filename))
         {
             outputFile.WriteLine($"{_totalPoints}");
         }
     }
 
-    // loading...
-    public string Loading()
+    // load...
+    public void LoadGoal(List<Goal> goals)
     {
-        Console.WriteLine("\nThe name of your file?");
+        Console.WriteLine("\nWhat is the filename for the goal file?");
         Console.Write("> ");
         string filename = Console.ReadLine();
-        return filename;
-    }
-    // load...
-    public void LoadGoal(string[] lines, List<Goal> goals)
-    {
+
+        string[] lines = File.ReadAllLines(filename);
+        string totalPoints = lines[0];
+        _totalPoints = int.Parse(totalPoints);
+
         for (int i = 1; i < lines.Length; i++)
         {
             string[] parts = lines[i].Split(",");
@@ -124,20 +146,28 @@ public class UserInterface
         }
     }
 
+    // record event...
+    public void ChooseGoalToCompleted(Goal goal, int n)
+    {
+        string name = goal.GetNameGoal();           
+        Console.WriteLine($"{n}. {name}");
+    }
     public void AskingGoal(List<Goal> goals)
     {
-        Console.Write("What goal you accomplished? ");
+        Console.Write("\nWhich goal did you accomplish? ");
         string goalAccomplished = Console.ReadLine();
         int number = int.Parse(goalAccomplished);
 
-        int points = goals[number-1].GetPointsGoal();
-        goals[number-1].SetCompletedGoal(true);
-        goals[number-1].RecordEvent();
+        goals[number - 1].GetPointsGoal();
+   
+        goals[number - 1].IsCompleted();
+        int point = goals[number - 1].RecordEvent();
         
-        SetTotalPoints(points);
+        SumTotalPoints(point);
+    
     }
 
-    public void SetTotalPoints(int points)
+    public void SumTotalPoints(int points)
     {
         _totalPoints += points;
     }

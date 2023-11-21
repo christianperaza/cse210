@@ -43,9 +43,7 @@ class Program
             // 2 display list...
             else if (menuChoice == 2)
             {
-                userInterface.DisplayTitlesListGoals();
-
-                int n = 1;
+                int n = userInterface.DisplayTitlesListGoals();
 
                 foreach (Goal goal in goals)
                 {   
@@ -70,23 +68,21 @@ class Program
             // 4 load...
             else if (menuChoice == 4)
             {
-                string filename = userInterface.Loading();
-
-                string[] lines = File.ReadAllLines(filename);
-                userInterface.LoadGoal(lines, goals);
+                userInterface.LoadGoal(goals);
             }
+            // 5 record event...
             else if (menuChoice == 5)
             {
-
-                int n = 1;
+                int n = userInterface.DisplayTitlesListGoals();
 
                 foreach (Goal goal in goals)
                 {   
-                    goal.ChooseGoalToCompleted(goal, n);
+                    userInterface.ChooseGoalToCompleted(goal, n);
                     n++;
                 }
 
                 userInterface.AskingGoal(goals);
+            
             }
         
 
