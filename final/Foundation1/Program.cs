@@ -29,8 +29,6 @@ class Program
         video1._listOfComments.Add(comment3Video1);
         video1._numberOfComments = video1._listOfComments.Count; // set number of comments counting the comments in list
 
-        // display video 1...
-        video1.DisplayVideoInfo();
 
 
         // --------- video 2 --------- //
@@ -61,9 +59,7 @@ class Program
         video2._listOfComments.Add(comment3Video2);
         video2._listOfComments.Add(comment4Video2);
         video2._numberOfComments = video2._listOfComments.Count; // set number of comments counting the comments in list
-
-        // display video 2...
-        video2.DisplayVideoInfo();
+        
 
 
         // --------- video 3 --------- //
@@ -95,14 +91,13 @@ class Program
         video3._listOfComments.Add(comment4Video3);
         video3._numberOfComments = video3._listOfComments.Count; // set number of comments counting the comments in list
 
+
+
+        // display video 1...
+        video1.DisplayVideoInfo();
+        // display video 2...
+        video2.DisplayVideoInfo();
         // display video 3...
-        video3.DisplayVideoInfo();
-
-
-        
-
-
-        
-        
+        video3.DisplayVideoInfo();  
     }
 }
