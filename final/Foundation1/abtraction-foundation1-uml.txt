@@ -1,0 +1,20 @@
+@startuml
+
+class Video {
++ _title : string
++ _author : string
++ _lengthInSeconds : int
++ _numberOfComments : int
++ _listOfComments : List<Comment>
+
++ DisplayVideoInfo() : void
+}
+
+class Comment {
++ _personName : string
++ _comment : string
+
++ DisplayComment() : void
+}
+
+@enduml
