@@ -11,8 +11,9 @@ public class Order
     {
         for (int i = 0; i < _listOfProducts.Count; i++)
         {
-            _listOfProducts[i].GetNameProduct();
-            _listOfProducts[i].GetIDProduct();
+            string name = _listOfProducts[i].GetNameProduct();
+            int id = _listOfProducts[i].GetIDProduct();
+            Console.WriteLine($"Name: {name}, ID: {id}");
         }
     }
 }
