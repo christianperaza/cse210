@@ -5,8 +5,24 @@ public class Product
     private double _priceProduct;
     private int _quantityProduct;
 
-    public double CalculateRealPrice()
+    public Product(string name, int id)
     {
-        return _priceProduct * _quantityProduct;
+        _nameProduct = name;
+        _idProduct = id;
     }
+
+    public string GetNameProduct()
+    {
+        return _nameProduct;
+    }
+
+    public int GetIDProduct()
+    {
+        return _idProduct;
+    }
+
+    // public double CalculateRealPrice()
+    // {
+    //     return _priceProduct * _quantityProduct;
+    // }
 }
