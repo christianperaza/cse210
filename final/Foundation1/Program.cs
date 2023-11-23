@@ -23,7 +23,7 @@ class Program
         video1._listOfComments.Add(comment1);    
         video1._listOfComments.Add(comment2);
         video1._listOfComments.Add(comment3);
-
+        video1._numberOfComments = video1._listOfComments.Count;
         video1.DisplayVideoInfo();
         
     }
