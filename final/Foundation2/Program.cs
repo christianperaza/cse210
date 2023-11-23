@@ -32,6 +32,7 @@ class Program
 
         
         order1.DisplayPackingLabel();
+        order1.DisplayShippingLabel();
         order1.CalculateTotalPrice();
         
 

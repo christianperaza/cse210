@@ -8,7 +8,7 @@ public class Customer
         _nameCustomer = name;
     }
 
-    public string GetNameCustormer()
+    public string GetNameCustomer()
     {
         return _nameCustomer;
     }

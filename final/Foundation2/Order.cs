@@ -18,15 +18,19 @@ public class Order
     {
         for (int i = 0; i < _products.Count; i++)
         {
-            string name = _products[i].GetNameProduct();
-            int id = _products[i].GetIDProduct();
-            Console.WriteLine($"Name: {name}, ID: {id}");
+            string nameProduct = _products[i].GetNameProduct();
+            int idProduct = _products[i].GetIDProduct();
+            Console.WriteLine($"Name: {nameProduct}, ID: {idProduct}");
         }
     }
 
     public void DisplayShippingLabel()
     {
-        
+        for (int i = 0; i < _customer.Count; i++)
+        {
+            string nameCustomer = _customer[i].GetNameCustomer();
+            Console.WriteLine($"Customer: {nameCustomer}");
+        }
     }
 
     public void CalculateTotalPrice()
