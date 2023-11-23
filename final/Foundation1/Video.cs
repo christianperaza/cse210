@@ -13,7 +13,7 @@ public class Video
         Console.WriteLine($"by {_author}");
         Console.WriteLine($"Duration: {_lengthInSeconds} seconds\n");
 
-        Console.WriteLine($"{_numberOfComments} Comments:");
+        Console.WriteLine($"{_numberOfComments} comments:\n");
         for (int i = 0; i < _listOfComments.Count; i++)
         {
             if (i + 1 < _listOfComments.Count)
