@@ -1,8 +1,9 @@
 public class Order
 {
+    private double _totalPrice;
     private List<Product> _listOfProducts = new List<Product>();
 
-    public Order(Product product)
+    public void SetProductInList(Product product)
     {
         _listOfProducts.Add(product);
     }
@@ -15,5 +16,16 @@ public class Order
             int id = _listOfProducts[i].GetIDProduct();
             Console.WriteLine($"Name: {name}, ID: {id}");
         }
+    }
+
+    public void CalculateTotalPrice()
+    {
+        for (int i = 0; i < _listOfProducts.Count; i++)
+        {
+            double price = _listOfProducts[i].CalculateRealPrice();
+            _totalPrice += price;
+        }
+
+        Console.WriteLine($"Total: {_totalPrice}");
     }
 }
