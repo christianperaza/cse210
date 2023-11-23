@@ -12,4 +12,9 @@ public class Customer
     {
         return _nameCustomer;
     }
+
+    public bool GetLivingInUSA()
+    {
+        return _addressCustomer.ReturnWhereLive();
+    }
 }
