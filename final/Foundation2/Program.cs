@@ -7,9 +7,6 @@ class Program
 
         // ----------- 1° ORDER ----------- //
 
-        // customer...
-        string nameCustomer1 = "Pablo Perez";
-
         // product 1...
         string nameProduct1 = "Shampoo Sweet";
         int idProduct1 = 56841236;
@@ -24,8 +21,16 @@ class Program
         int quantityProduct2 = 5;
         Product product2 = new Product(nameProduct2, idProduct2, priceProduct2, quantityProduct2);
 
+        // customer 1...
+        string nameCustomer1 = "Pablo Perez";
+        // address 1...
+        string street1 = "45 street";
+        string city1 = "Guayana";
+        string state1 = "Bolivar";
+        string country1 = "USA";
+
         // order 1...
-        Order order1 = new Order(nameCustomer1);
+        Order order1 = new Order(nameCustomer1, street1, city1, state1, country1);
         order1.SetProductInList(product1);
         order1.SetProductInList(product2);
 

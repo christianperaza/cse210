@@ -4,9 +4,15 @@ public class Order
     private List<Product> _products = new List<Product>();
     private Customer _customer;
 
-    public Order(string nameCustomer)
+    private int _USAShippingCost;
+    private int _outShippingCost;
+
+    public Order(string nameCustomer, string street, string city, string state, string country)
     {
-        _customer = new Customer(nameCustomer);
+        _customer = new Customer(nameCustomer, street, city, state, country);
+
+        _USAShippingCost = 5;
+        _outShippingCost = 35;
     }
 
     public void SetProductInList(Product product)
@@ -28,7 +34,10 @@ public class Order
     {
         string nameCustomer = _customer.GetNameCustomer();
         Console.WriteLine($"Customer: {nameCustomer}");
-        
+
+
+        string addressCustomer = _customer.GetAddress();  
+        Console.WriteLine($"{addressCustomer}"); 
     }
 
     public void CalculateTotalPrice()
@@ -37,6 +46,15 @@ public class Order
         {
             double price = _products[i].CalculateRealPrice();
             _totalPrice += price;
+        }
+
+        if (_customer.GetLivingInUSA() == true)
+        {
+            _totalPrice += _USAShippingCost;
+        }
+        else
+        {
+            _totalPrice += _outShippingCost;
         }
 
         Console.WriteLine($"Total: {_totalPrice}");

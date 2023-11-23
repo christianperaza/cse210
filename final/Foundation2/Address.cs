@@ -16,7 +16,7 @@ public class Address
 
     public bool ReturnWhereLive()
     {
-        if (_city == "USA")
+        if (_country == "USA")
         {
             livingInUSA = true;
         }
@@ -30,6 +30,6 @@ public class Address
 
     public string DisplayAddress()
     {
-        return $"{_street} \n {_city} \n {_stateProvince}, {_country}";
+        return $"{_street}\n{_city}\n{_stateProvince}, {_country}";
     }
 }
