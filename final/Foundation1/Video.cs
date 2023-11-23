@@ -7,7 +7,16 @@ public class Video
     public int _numberOfComments;
     public List<Comment> _listOfComments = new List<Comment>();
 
-    // method...
+    // methods...
+
+    // calculate the numbers of comments
+    public int CalculateNumberOfComments()
+    {
+        _numberOfComments = _listOfComments.Count;
+        return _numberOfComments;
+    }
+
+    // display Video information
     public void DisplayVideoInfo()
     {
         Console.WriteLine("-----------------------------------------"); // design
@@ -15,7 +24,7 @@ public class Video
         Console.WriteLine($"by {_author}");
         Console.WriteLine($"Duration: {_lengthInSeconds} seconds\n");
 
-        Console.WriteLine($"{_numberOfComments} comments:\n");
+        Console.WriteLine($"{CalculateNumberOfComments()} comments:\n"); // get the return from CalculateNumberOfComments method
 
         for (int i = 0; i < _listOfComments.Count; i++)
         {

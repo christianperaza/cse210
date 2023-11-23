@@ -27,7 +27,6 @@ class Program
         video1._listOfComments.Add(comment1Video1);    
         video1._listOfComments.Add(comment2Video1);
         video1._listOfComments.Add(comment3Video1);
-        video1._numberOfComments = video1._listOfComments.Count; // set number of comments counting the comments in list
 
 
 
@@ -58,7 +57,6 @@ class Program
         video2._listOfComments.Add(comment2Video2);
         video2._listOfComments.Add(comment3Video2);
         video2._listOfComments.Add(comment4Video2);
-        video2._numberOfComments = video2._listOfComments.Count; // set number of comments counting the comments in list
         
 
 
@@ -89,7 +87,6 @@ class Program
         video3._listOfComments.Add(comment2Video3);
         video3._listOfComments.Add(comment3Video3);
         video3._listOfComments.Add(comment4Video3);
-        video3._numberOfComments = video3._listOfComments.Count; // set number of comments counting the comments in list
 
 
 

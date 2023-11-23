@@ -5,6 +5,8 @@ public class Comment
     public string _comment;
 
     // method...
+
+    // display comment
     public void DisplayComment()
     {
         Console.WriteLine($"@{_personName}:");
