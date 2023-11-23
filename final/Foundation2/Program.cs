@@ -27,7 +27,7 @@ class Program
         string street1 = "45 street";
         string city1 = "Guayana";
         string state1 = "Bolivar";
-        string country1 = "USA";
+        string country1 = "Venezuela";
 
         // order 1...
         Order order1 = new Order(nameCustomer1, street1, city1, state1, country1);
