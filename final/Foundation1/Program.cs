@@ -9,7 +9,6 @@ class Program
         video1._title = "Lewis Capaldi - Before You Go (Official Video)";
         video1._author = "Lewis Capaldi";
         video1._lengthInSeconds = 247;
-        video1.DisplayVideoInfo();
 
         Comment comment1 = new Comment();
         comment1._personName = "jackie";
@@ -24,6 +23,8 @@ class Program
         video1._listOfComments.Add(comment1);    
         video1._listOfComments.Add(comment2);
         video1._listOfComments.Add(comment3);
+
+        video1.DisplayVideoInfo();
         
     }
 }

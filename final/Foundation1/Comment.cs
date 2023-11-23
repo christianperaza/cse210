@@ -5,7 +5,7 @@ public class Comment
 
     public void DisplayComment()
     {
-        Console.WriteLine($"@{_personName}");
-        Console.WriteLine($"'{_comment}'");
+        Console.WriteLine($"@{_personName}:");
+        Console.WriteLine($"{_comment}");
     }
 }
