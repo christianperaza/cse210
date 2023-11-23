@@ -3,8 +3,8 @@ public class Order
     private List<Product> _products = new List<Product>();
     private Customer _customer;
 
-    private double _subTotal;
-    private double _totalPrice;
+    private float _subTotal;
+    private float _totalPrice;
     private int _USAShippingCost;
     private int _outShippingCost;
 
@@ -23,6 +23,7 @@ public class Order
 
     public void DisplayPackingLabel()
     {
+        Console.WriteLine("---------------------------------------");
         Console.WriteLine("ORDER\n");
 
         for (int i = 0; i < _products.Count; i++)
@@ -30,19 +31,21 @@ public class Order
             string nameProduct = _products[i].GetNameProduct();
             int idProduct = _products[i].GetIDProduct();
             
-            double priceProduct = _products[i].GetPriceProduct();
+            float priceProduct = _products[i].GetPriceProduct();
             int quantityProduct = _products[i].GetQuantityProduct();
 
             Console.WriteLine($"({idProduct}) {nameProduct} ${priceProduct} x {quantityProduct}");
         }
+        Console.WriteLine("---------------------------------------");
     }
 
     public void DisplayShippingLabel()
     {
         string nameCustomer = _customer.GetNameCustomer();
-        Console.WriteLine($"\nCustomer: {nameCustomer}");
+        Console.WriteLine($"Customer: {nameCustomer}\n");
 
-        string addressCustomer = _customer.GetAddress();  
+        Console.WriteLine("Address:");
+        string addressCustomer = _customer.GetAddress();
         Console.WriteLine($"{addressCustomer}"); 
     }
 
@@ -50,28 +53,38 @@ public class Order
     {
         for (int i = 0; i < _products.Count; i++)
         {
-            double price = _products[i].CalculateRealPrice();
+            float price = _products[i].CalculateRealPrice();
             _subTotal += price;
         }
+
+        Console.WriteLine("---------------------------------------");
+        Console.WriteLine($"Sub-Total: ${_subTotal}");
 
         if (_customer.GetLivingInUSA() == true)
         {
             _totalPrice = _subTotal + _USAShippingCost;
+            Console.WriteLine($"Shipping cost: ${_USAShippingCost}");
         }
         else
         {
             _totalPrice = _subTotal + _outShippingCost;
+            Console.WriteLine($"Shipping cost: ${_outShippingCost}");
         }
 
-        Console.WriteLine($"Sub-Total: {_subTotal}");
-
-        Console.WriteLine($"Total: {_totalPrice}");
+        
+        Console.WriteLine("---------------------------------------");
+        Console.WriteLine($"Total: ${_totalPrice}");
+        Console.WriteLine("---------------------------------------");
     }
 
     public void DisplayOrder()
     {
+        Console.WriteLine("");
+
         DisplayPackingLabel();
         DisplayShippingLabel();
         CalculateTotalPrice();
+
+        Console.WriteLine("");
     }
 }

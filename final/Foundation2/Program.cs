@@ -10,22 +10,22 @@ class Program
         // product 1...
         string nameProduct1 = "Shampoo Sweet";
         int idProduct1 = 56841236;
-        double priceProduct1 = 5.3;
+        float priceProduct1 = 5.3f;
         int quantityProduct1 = 2;
         Product product1 = new Product(nameProduct1, idProduct1, priceProduct1, quantityProduct1);
 
         // product 2...
         string nameProduct2 = "Ruby Soap";
         int idProduct2 = 45789122;
-        double priceProduct2 = 3;
+        float priceProduct2 = 3f;
         int quantityProduct2 = 5;
         Product product2 = new Product(nameProduct2, idProduct2, priceProduct2, quantityProduct2);
 
         // customer 1...
         string nameCustomer1 = "Pablo Perez";
         // address 1...
-        string street1 = "45 street";
-        string city1 = "Guayana";
+        string street1 = "Uripata St.";
+        string city1 = "Guayana 8051";
         string state1 = "Bolivar";
         string country1 = "Venezuela";
 
