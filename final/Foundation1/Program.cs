@@ -66,7 +66,37 @@ class Program
         video2.DisplayVideoInfo();
 
 
-        
+        // --------- video 3 --------- //
+
+        // create and instance of a new Video object...
+        Video video3 = new();
+        video3._title = "How to use Lists in C# - Tutorial";
+        video3._author = "FunPrograming";
+        video3._lengthInSeconds = 480;
+
+        // comments of video 3...
+        Comment comment1Video3 = new Comment(); // 3.1
+        comment1Video3._personName = "hector_zambrano";
+        comment1Video3._comment = "Bro, you saved my semester. I was struggling with that. Thaaaanks!";
+        Comment comment2Video3 = new Comment(); // 3.2
+        comment2Video3._personName = "liza52";
+        comment2Video3._comment = "boring. you talk so slow...";
+        Comment comment3Video3 = new Comment(); // 3.3
+        comment3Video3._personName = "ChrisK6";
+        comment3Video3._comment = "Men, can you submit a tutorial about abstraction, please. I like how you teach.";
+        Comment comment4Video3 = new Comment(); // 3.4
+        comment4Video3._personName = "callmeCarl";
+        comment4Video3._comment = "10/10.";
+
+        // now, we add comments to list of comments in video3...
+        video3._listOfComments.Add(comment1Video3);    
+        video3._listOfComments.Add(comment2Video3);
+        video3._listOfComments.Add(comment3Video3);
+        video3._listOfComments.Add(comment4Video3);
+        video3._numberOfComments = video3._listOfComments.Count; // set number of comments counting the comments in list
+
+        // display video 3...
+        video3.DisplayVideoInfo();
 
 
         
