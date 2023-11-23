@@ -8,6 +8,7 @@ public class Video
 
     public void DisplayVideoInfo()
     {
+        Console.WriteLine("-----------------------------------------");
         Console.WriteLine($"{_title}");
         Console.WriteLine($"by {_author}");
         Console.WriteLine($"Duration: {_lengthInSeconds} seconds\n");
@@ -15,7 +16,16 @@ public class Video
         Console.WriteLine($"{_numberOfComments} Comments:");
         for (int i = 0; i < _listOfComments.Count; i++)
         {
-            _listOfComments[i].DisplayComment();
+            if (i + 1 < _listOfComments.Count)
+            {
+                _listOfComments[i].DisplayComment();
+                Console.WriteLine("");
+            }
+            else if (i + 1 == _listOfComments.Count)
+            {
+                _listOfComments[i].DisplayComment();
+            }
         }
+        Console.WriteLine("-----------------------------------------");
     }
 }
