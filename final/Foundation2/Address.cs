@@ -4,7 +4,7 @@ public class Address
     private string _city;
     private string _stateProvince;
     private string _country;
-    private bool livingInUSA;
+    private bool _livingInUSA;
 
     public Address(string street, string city, string state, string country)
     {
@@ -18,14 +18,14 @@ public class Address
     {
         if (_country == "USA")
         {
-            livingInUSA = true;
+            _livingInUSA = true;
         }
         else
         {
-            livingInUSA = false;
+            _livingInUSA = false;
         }
 
-        return livingInUSA;
+        return _livingInUSA;
     }
 
     public string DisplayAddress()

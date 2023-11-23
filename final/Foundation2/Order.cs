@@ -28,33 +28,33 @@ public class Order
 
         for (int i = 0; i < _products.Count; i++)
         {
-            string nameProduct = _products[i].GetNameProduct();
-            int idProduct = _products[i].GetIDProduct();
+            string _nameProduct = _products[i].GetNameProduct();
+            int _idProduct = _products[i].GetIDProduct();
             
-            float priceProduct = _products[i].GetPriceProduct();
-            int quantityProduct = _products[i].GetQuantityProduct();
+            float _priceProduct = _products[i].GetPriceProduct();
+            int _quantityProduct = _products[i].GetQuantityProduct();
 
-            Console.WriteLine($"({idProduct}) {nameProduct} ${priceProduct} x {quantityProduct}");
+            Console.WriteLine($"({_idProduct}) {_nameProduct} ${_priceProduct} x {_quantityProduct}");
         }
         Console.WriteLine("---------------------------------------");
     }
 
     public void DisplayShippingLabel()
     {
-        string nameCustomer = _customer.GetNameCustomer();
-        Console.WriteLine($"Customer: {nameCustomer}\n");
+        string _nameCustomer = _customer.GetNameCustomer();
+        Console.WriteLine($"Customer: {_nameCustomer}\n");
 
         Console.WriteLine("Address:");
-        string addressCustomer = _customer.GetAddress();
-        Console.WriteLine($"{addressCustomer}"); 
+        string _addressCustomer = _customer.GetAddress();
+        Console.WriteLine($"{_addressCustomer}"); 
     }
 
     public void CalculateTotalPrice()
     {
         for (int i = 0; i < _products.Count; i++)
         {
-            float price = _products[i].CalculateRealPrice();
-            _subTotal += price;
+            float _price = _products[i].CalculateRealPrice();
+            _subTotal += _price;
         }
 
         Console.WriteLine("---------------------------------------");
