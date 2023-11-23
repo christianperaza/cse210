@@ -22,6 +22,8 @@ public class Order
 
     public void DisplayPackingLabel()
     {
+        Console.WriteLine("ORDER\n");
+
         for (int i = 0; i < _products.Count; i++)
         {
             string nameProduct = _products[i].GetNameProduct();

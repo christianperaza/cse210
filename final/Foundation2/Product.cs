@@ -23,6 +23,16 @@ public class Product
         return _idProduct;
     }
 
+    public double GetPriceProduct()
+    {
+        return _priceProduct;
+    }
+
+    public int GetQuantityProduct()
+    {
+        return _quantityProduct;
+    }
+
     public double CalculateRealPrice()
     {
         return _priceProduct * _quantityProduct;
