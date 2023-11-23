@@ -60,12 +60,12 @@ class Program
         Product product3Order2 = new Product(nameProduct3Order2, idProduct3Order2, priceProduct3Order2, quantityProduct3Order2);
 
         // customer 2...
-        string nameCustomer2 = "Pablo Perez";
+        string nameCustomer2 = "Phil Mason Martin";
         // address 2...
-        string street2 = "Uripata St.";
-        string city2 = "Guayana 8051";
-        string state2 = "Bolivar";
-        string country2 = "Venezuela";
+        string street2 = "View West St.";
+        string city2 = "Kingston";
+        string state2 = "New York";
+        string country2 = "USA";
 
         // order 2...
         Order order2 = new Order(nameCustomer2, street2, city2, state2, country2);
