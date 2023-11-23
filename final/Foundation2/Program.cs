@@ -35,9 +35,7 @@ class Program
         order1.SetProductInList(product2);
 
         
-        order1.DisplayPackingLabel();
-        order1.DisplayShippingLabel();
-        order1.CalculateTotalPrice();
+        order1.DisplayOrder();
         
 
         

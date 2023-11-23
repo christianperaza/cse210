@@ -1,9 +1,9 @@
 public class Order
 {
-    private double _totalPrice;
     private List<Product> _products = new List<Product>();
     private Customer _customer;
 
+    private double _totalPrice;
     private int _USAShippingCost;
     private int _outShippingCost;
 
@@ -26,6 +26,7 @@ public class Order
         {
             string nameProduct = _products[i].GetNameProduct();
             int idProduct = _products[i].GetIDProduct();
+
             Console.WriteLine($"Name: {nameProduct}, ID: {idProduct}");
         }
     }
@@ -34,7 +35,6 @@ public class Order
     {
         string nameCustomer = _customer.GetNameCustomer();
         Console.WriteLine($"Customer: {nameCustomer}");
-
 
         string addressCustomer = _customer.GetAddress();  
         Console.WriteLine($"{addressCustomer}"); 
@@ -58,5 +58,12 @@ public class Order
         }
 
         Console.WriteLine($"Total: {_totalPrice}");
+    }
+
+    public void DisplayOrder()
+    {
+        DisplayPackingLabel();
+        DisplayShippingLabel();
+        CalculateTotalPrice();
     }
 }
