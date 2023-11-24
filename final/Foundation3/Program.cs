@@ -14,9 +14,13 @@ class Program
         string cityLecture = "Guayana";
         string stateLecture = "Bolivar";
         string countryLecture = "Venezuela";
-        Lecture lecture = new Lecture(titleLecture, descriptionLecture, dateLecture, timeLecture, streetLecture, cityLecture, stateLecture, countryLecture);
+
+        string speakerLecture = "Jose Ortega Lopez";
+        int capacityLecture = 25;
+        Lecture lecture = new Lecture(titleLecture, descriptionLecture, dateLecture, timeLecture, streetLecture, cityLecture, stateLecture, countryLecture, speakerLecture, capacityLecture);
 
         lecture.DisplayStandardDetails();
+        lecture.DisplayFullDetails();
         lecture.DisplayShortDescription();
     }
 }

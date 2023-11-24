@@ -1,11 +1,23 @@
 public class Lecture : Event
 {
-    // public Lecture(string type = "Lecture", string title, string description, string date, string time, Address address) : base(type, title, description, date, time, address)
-    public Lecture(string title, string description, string date, string time, string street, string city, string state, string country) : base(title, description, date, time, street, city, state, country)
+    private string _speakerName;
+    private int _capacity;
+
+    public Lecture(string title, string description, string date, string time, string street, string city, string state, string country, string speaker, int capacity) : base(title, description, date, time, street, city, state, country)
     {
         SetType("Lecture");
 
+        _speakerName = speaker;
+        _capacity = capacity;
     }
+
+    public void DisplayFullDetails()
+    {
+        DisplayStandardDetails();
+        Console.WriteLine($"Speaker: {_speakerName}. Capacity: {_capacity}.");
+    }
+
+    
 
     
 }
