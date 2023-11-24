@@ -4,11 +4,19 @@ class Program
 {
     static void Main(string[] args)
     {
-        string typeLecture = "Lecture";
+        
         string titleLecture = "Reading The Book of Mormon";
+        string descriptionLecture = "We will reading 1 chapter of The Book of Mormon and analize together";
         string dateLecture = "November 27, 2023";
-        Lecture lecture = new Lecture(typeLecture, titleLecture, dateLecture);
+        string timeLecture = "8:00 a. m.";
 
+        string streetLecture = "Uripata St.";
+        string cityLecture = "Guayana";
+        string stateLecture = "Bolivar";
+        string countryLecture = "Venezuela";
+        Lecture lecture = new Lecture(titleLecture, descriptionLecture, dateLecture, timeLecture, streetLecture, cityLecture, stateLecture, countryLecture);
+
+        lecture.DisplayStandardDetails();
         lecture.DisplayShortDescription();
     }
 }
