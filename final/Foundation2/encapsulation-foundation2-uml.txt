@@ -1,0 +1,64 @@
+@startuml
+
+class Order {
+- _products : List<Product>
+- _customer : Customer
+
+- _subTotal : float
+- _totalPrice : float
+- _USAShippingCost : int
+- _outShippingCost : int
+
++ Order(nameCustomer:string, street:string, city:string, state:string, country:string)
+
++ SetProductInList(product:Product) : void
+
++ DisplayPackingLabel() : void
++ DisplayShippingLabel() : void
++ CalculateTotalPrice() : void
+
++ DisplayOrder() : void
+}
+
+class Product {
+- _nameProduct : string
+- _idProduct : int
+- _priceProduct : float
+- _quantityProduct : int
+
++ Product(name:string, id:int, price:float, quantity:int)
+
++ GetNameProduct() : string
++ GetIDProduct() : int
++ GetPriceProduct() : float
++ GetQuantityProduct() : int
+
++ CalculateRealPrice() : float
+}
+
+class Customer {
+- _nameCustomer : string
+- _addressCustomer : Address
+
++ Customer(name:string, street:string, city:string, state:string, country:string)
+
++ GetNameCustomer() : string
++ GetLivingInUSA() : bool
++ GetAddress() : string
+}
+
+class Address {
+- _street : string
+- _city : string
+- _stateProvince : string
+- _country : string
+
+- _livingInUSA : bool
+
++ Address(street:string, city:string, state:string, country:string)
+
++ ReturnWhereLive() : bool
++ DisplayAddress() : string
+}
+
+@enduml
