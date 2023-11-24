@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-
         // ----------- 1° ORDER ----------- //
 
         // product 1...
@@ -31,8 +30,8 @@ class Program
 
         // order 1...
         Order order1 = new Order(nameCustomer1, street1, city1, state1, country1);
-        order1.SetProductInList(product1);
-        order1.SetProductInList(product2);
+        order1.SetProductInList(product1); // set product 1
+        order1.SetProductInList(product2); // set product 2
 
 
 
@@ -69,18 +68,15 @@ class Program
 
         // order 2...
         Order order2 = new Order(nameCustomer2, street2, city2, state2, country2);
-        order2.SetProductInList(product1Order2);
-        order2.SetProductInList(product2Order2);
-        order2.SetProductInList(product3Order2);
+        order2.SetProductInList(product1Order2); // set product 1
+        order2.SetProductInList(product2Order2); // set product 2
+        order2.SetProductInList(product3Order2); // set product 3
 
         
 
         // ----------- DISPLAY ORDERS ----------- //
         order1.DisplayOrder();
         order2.DisplayOrder();
-        
 
-        
-        
     }
 }

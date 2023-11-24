@@ -1,11 +1,14 @@
 public class Address
 {
+    // attributes...
     private string _street;
     private string _city;
     private string _stateProvince;
     private string _country;
-    private bool _livingInUSA;
 
+    private bool _livingInUSA; // store true or false
+
+    // constructor to set street, city, state, and country...
     public Address(string street, string city, string state, string country)
     {
         _street = street;
@@ -14,6 +17,9 @@ public class Address
         _country = country;
     }
 
+    // methods...
+
+    // return true or false depending whether customer lives in the USA or not
     public bool ReturnWhereLive()
     {
         if (_country == "USA")
@@ -28,6 +34,7 @@ public class Address
         return _livingInUSA;
     }
 
+    // display address
     public string DisplayAddress()
     {
         return $"{_street}\n{_city}\n{_stateProvince}, {_country}";
