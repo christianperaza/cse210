@@ -19,8 +19,6 @@ class Program
         int capacityLecture = 25;
         Lecture lecture = new Lecture(titleLecture, descriptionLecture, dateLecture, timeLecture, streetLecture, cityLecture, stateLecture, countryLecture, speakerLecture, capacityLecture);
 
-        lecture.DisplayStandardDetails();
-        lecture.DisplayFullDetails();
-        lecture.DisplayShortDescription();
+        lecture.DisplayMarketingMessages();
     }
 }

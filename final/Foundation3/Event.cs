@@ -25,13 +25,11 @@ public class Event
 
     public void DisplayStandardDetails()
     {
-        Console.WriteLine("Standard Details:");
-        Console.WriteLine($"Title: {_titleEvent}. Description: {_descriptionEvent}. Date: {_dateEvent}. Time: {_timeEvent}. Address: {_addressEvent.DisplayAddress()}");
+        Console.WriteLine($"Title: {_titleEvent}.\nDescription: {_descriptionEvent}.\nDate: {_dateEvent}.\nTime: {_timeEvent}.\nAddress:\n{_addressEvent.DisplayAddress()}");
     }
 
     public void DisplayShortDescription()
     {
-        Console.WriteLine("Short Description:");
         Console.WriteLine($"Type: {_typeEvent}. Title: {_titleEvent}. Date: {_dateEvent}.");
     }
 }

@@ -17,6 +17,21 @@ public class Lecture : Event
         Console.WriteLine($"Speaker: {_speakerName}. Capacity: {_capacity}.");
     }
 
+    public void DisplayMarketingMessages()
+    {
+        Console.WriteLine("Standard Details:");
+        DisplayStandardDetails();
+        Console.WriteLine("");
+
+        Console.WriteLine("Full Details:");
+        DisplayFullDetails();
+        Console.WriteLine("");
+
+        Console.WriteLine("Short Description:");
+        DisplayShortDescription();
+        Console.WriteLine("");
+    }
+
     
 
     
