@@ -75,8 +75,16 @@ class Program
         
 
         // ----------- DISPLAY ORDERS ----------- //
-        order1.DisplayOrder();
-        order2.DisplayOrder();
+        List<Order> orders = new()
+        {
+            order1,
+            order2
+        };
+        
+        foreach (Order order in orders)
+        {
+            order.DisplayOrder();
+        }
 
     }
 }

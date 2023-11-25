@@ -4,6 +4,8 @@ public class Customer
     private string _nameCustomer;
     private Address _addressCustomer;
 
+    private bool _livingInUSA; // store true or false
+
     // constructor to set customer street, city, state, and country to address constructor...
     public Customer(string name, string street, string city, string state, string country)
     {
@@ -23,7 +25,16 @@ public class Customer
     // get true if customer lives in USA or false if he/she doesn't
     public bool GetLivingInUSA()
     {
-        return _addressCustomer.ReturnWhereLive();
+        if (_addressCustomer.ReturnWhereLive() == "USA")
+        {
+            _livingInUSA = true;
+        }
+        else
+        {
+            _livingInUSA = false;
+        }
+
+        return _livingInUSA;
     }
 
     // get address from address class
