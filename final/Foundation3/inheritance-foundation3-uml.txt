@@ -1,5 +1,57 @@
 @startuml
 
+Event <|-- Lecture
+Event <|-- Reception
+Event <|-- Outdoor
 
+class Event {
+- _titleEvent : string
+- _descriptionEvent : string
+- _dateEvent : string
+- _timeEvent : string
+- _addressEvent : Address
+
+- _typeEvent : string
+- _specificDetail : string
+
++ Event(title:string, description:string, date:string, time:string, street:string, city:string, state:string, country:string)
+
++ SetType(type:string) : void
++ SetSpecificDetails(specificDetail:string) : void
+
++ DisplayStandardDetails() : void
++ DisplayShortDescription() : void
++ DisplayMarketingMessages() : void
+}
+
+class Lecture {
+- _speakerName : string
+- _capacity : int
+
++ Lecture(title:string, description:string, date:string, time:string, street:string, city:string, state:string, country:string, speaker:string, capacity:int) : base(title, description, date, time, street, city, state, country)
+}
+
+class Reception {
+- _email : string
+
++ Lecture(title:string, description:string, date:string, time:string, street:string, city:string, state:string, country:string, email:string) : base(title, description, date, time, street, city, state, country)
+}
+
+class Outdoor {
+- _weatheStatement : string
+
++ Lecture(title:string, description:string, date:string, time:string, street:string, city:string, state:string, country:string, weather:string) : base(title, description, date, time, street, city, state, country)
+}
+
+class Address {
+- _street : string
+- _city : string
+- _state : string
+- _country : string
+
++ Address(street:string, city:string, state:string, country:string)
+
++ DisplayAddress() : string
+}
 
 @enduml
