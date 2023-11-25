@@ -14,6 +14,10 @@ public class Running : Activity
         return decimal.Round(_distanceRunning, 1);
     }
 
+    public override decimal CalculateSpeed() {
+        return decimal.Round(_distanceRunning / GetLengthInMinutes() * 60, 1);
+    }
+
     public override decimal CalculatePace()
     {
         return decimal.Round(GetLengthInMinutes() / _distanceRunning, 1);

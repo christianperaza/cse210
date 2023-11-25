@@ -14,6 +14,10 @@ public class Swimming : Activity
         return decimal.Round(_swimmingLaps * 50 / 1000, 1);
     }
 
+    public override decimal CalculateSpeed() {
+        return decimal.Round(CalculateDistance() / GetLengthInMinutes() * 60, 1);
+    }
+
     public override decimal CalculatePace()
     {
         return decimal.Round(60 / CalculateSpeed(), 1);
