@@ -1,5 +1,7 @@
 @startuml
 
+title Encapsulation with Online Ordering - Foundation 2, by Christian Peraza, cse210
+
 class Order {
 - _products : List<Product>
 - _customer : Customer
@@ -9,7 +11,8 @@ class Order {
 - _USAShippingCost : int
 - _outShippingCost : int
 
-+ Order(nameCustomer:string, street:string, city:string, state:string, country:string)
++ Order(nameCustomer:string, 
+street:string, city:string, state:string, country:string)
 
 + SetProductInList(product:Product) : void
 
@@ -40,7 +43,10 @@ class Customer {
 - _nameCustomer : string
 - _addressCustomer : Address
 
-+ Customer(name:string, street:string, city:string, state:string, country:string)
+- _livingInUSA : bool
+
++ Customer(name:string, 
+street:string, city:string, state:string, country:string)
 
 + GetNameCustomer() : string
 + GetLivingInUSA() : bool
@@ -53,11 +59,9 @@ class Address {
 - _stateProvince : string
 - _country : string
 
-- _livingInUSA : bool
-
 + Address(street:string, city:string, state:string, country:string)
 
-+ ReturnWhereLive() : bool
++ ReturnWhereLive() : string
 + DisplayAddress() : string
 }
 
