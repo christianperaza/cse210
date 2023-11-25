@@ -1,16 +1,21 @@
 public class Running : Activity
 {
-    private int _distanceRunning;
+    private decimal _distanceRunning;
 
-    public Running(string date, int lenght, int distance) : base(date, lenght)
+    public Running(string date, int lenght, decimal distance) : base(date, lenght)
     {
         SetType("Running");
 
         _distanceRunning = distance;
     }
 
-    public override int CalculateDistance()
+    public override decimal CalculateDistance()
     {
-        return _distanceRunning;
+        return decimal.Round(_distanceRunning, 1);
+    }
+
+    public override decimal CalculatePace()
+    {
+        return decimal.Round(GetLengthInMinutes() / _distanceRunning, 1);
     }
 }
