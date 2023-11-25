@@ -1,0 +1,25 @@
+@startuml
+
+title Polymorphism with Exercise Tracking
+
+Activity <|-- Running
+Activity <|-- Cycling
+Activity <|-- Swimming
+
+abstract class Activity {
+- _date : string
+- _lengthInMinutes : int
+
+- _type : string
+
++ Activity(date:string, lengthInMinutes:int)
+
++ SetType(type:string) : void
++ GetLengthInMinutes() : int
+
++ {abstract} CalculateDistance() : decimal
++ {abstract} CalculateSpeed() : decimal
++ {abstract} CalculatePace() : decimal
+}
+
+@enduml

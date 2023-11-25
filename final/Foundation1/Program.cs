@@ -90,11 +90,19 @@ class Program
 
 
 
-        // display video 1...
-        video1.DisplayVideoInfo();
-        // display video 2...
-        video2.DisplayVideoInfo();
-        // display video 3...
-        video3.DisplayVideoInfo();  
+        // put each of the videos in a list...
+        List<Video> videos = new()
+        {
+            video1,
+            video2,
+            video3
+        };
+
+        // iterate through the list of videos and display info of each one...
+        foreach (Video video in videos)
+        {
+            video.DisplayVideoInfo();
+        }
+
     }
 }

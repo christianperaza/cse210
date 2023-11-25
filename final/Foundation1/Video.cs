@@ -4,16 +4,14 @@ public class Video
     public string _title;
     public string _author;
     public int _lengthInSeconds;
-    public int _numberOfComments;
-    public List<Comment> _listOfComments = new List<Comment>();
+    public List<Comment> _listOfComments = new List<Comment>(); // Each video has responsibility to store a list of comments
 
     // methods...
 
-    // calculate the numbers of comments
-    public int CalculateNumberOfComments()
+    // return the numbers of comments
+    public int ReturnNumberOfComments()
     {
-        _numberOfComments = _listOfComments.Count;
-        return _numberOfComments;
+        return _listOfComments.Count;
     }
 
     // display Video information
@@ -24,7 +22,7 @@ public class Video
         Console.WriteLine($"by {_author}");
         Console.WriteLine($"Duration: {_lengthInSeconds} seconds\n");
 
-        Console.WriteLine($"{CalculateNumberOfComments()} comments:\n"); // get the return from CalculateNumberOfComments method
+        Console.WriteLine($"{ReturnNumberOfComments()} comments:\n"); // get the return from CalculateNumberOfComments method
 
         for (int i = 0; i < _listOfComments.Count; i++)
         {
