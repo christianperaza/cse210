@@ -1,13 +1,14 @@
 @startuml
 
+title Abstraction with YouTube Videos - Foundation 1
+
 class Video {
 + _title : string
 + _author : string
 + _lengthInSeconds : int
-+ _numberOfComments : int
 + _listOfComments : List<Comment>
 
-+ CalculateNumberOfComments() : int
++ ReturnNumberOfComments() : int
 + DisplayVideoInfo() : void
 }
 
