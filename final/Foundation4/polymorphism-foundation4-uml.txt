@@ -1,6 +1,6 @@
 @startuml
 
-title Polymorphism with Exercise Tracking
+title Polymorphism with Exercise Tracking, by Christian Peraza, cse210
 
 Activity <|-- Running
 Activity <|-- Cycling
@@ -20,6 +20,37 @@ abstract class Activity {
 + {abstract} CalculateDistance() : decimal
 + {abstract} CalculateSpeed() : decimal
 + {abstract} CalculatePace() : decimal
++ GetSummary() : void
+}
+
+class Running {
+- _distanceRunning : decimal
+
++ Running(date:string, length:int. distance:decimal) : base(date, length)
+
++ CalculateDistance() : decimal
++ CalculateSpeed() : decimal
++ CalculatePace() : decimal
+}
+
+class Cycling {
+- _speedCycling : decimal
+
++ Running(date:string, length:int. speed:decimal) : base(date, length)
+
++ CalculateDistance() : decimal
++ CalculateSpeed() : decimal
++ CalculatePace() : decimal
+}
+
+class Swimming {
+- _swimmingLaps : decimal
+
++ Running(date:string, length:int. laps:decimal) : base(date, length)
+
++ CalculateDistance() : decimal
++ CalculateSpeed() : decimal
++ CalculatePace() : decimal
 }
 
 @enduml
