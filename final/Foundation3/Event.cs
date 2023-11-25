@@ -41,6 +41,13 @@ public class Event
         Console.WriteLine($"TITLE: {_titleEvent}.\nDESCRIPTION: {_descriptionEvent}.\nDATE: {_dateEvent}.\nTIME: {_timeEvent}\nADDRESS:\n{_addressEvent.DisplayAddress()}");
     }
 
+    // full details...
+    public void DisplayFullDetails()
+    {
+        DisplayStandardDetails();
+        Console.WriteLine($"{_specificDetail}"); // display the specific details. Lectures: speaker and capacity; Receptions: email; Outdoor gatherings: weather statement
+    }
+
     // short description
     public void DisplayShortDescription()
     {
@@ -58,8 +65,7 @@ public class Event
         Console.WriteLine("");
 
         Console.WriteLine("*** FULL DETAILS ***");
-        DisplayStandardDetails();
-        Console.WriteLine($"{_specificDetail}"); // display the specific details. Lectures: speaker and capacity; Receptions: email; Outdoor gatherings: weather statement
+        DisplayFullDetails();
         Console.WriteLine("");
 
         Console.WriteLine("*** SHORT DESCRIPTION ***");

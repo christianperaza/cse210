@@ -1,5 +1,7 @@
 @startuml
 
+title Inheritance with Event Planning, by Christian Peraza, cse210
+
 Event <|-- Lecture
 Event <|-- Reception
 Event <|-- Outdoor
@@ -21,7 +23,9 @@ street:string, city:string, state:string, country:string)
 + SetSpecificDetails(specificDetail:string) : void
 
 + DisplayStandardDetails() : void
++ DisplayFullDetails() : void
 + DisplayShortDescription() : void
+
 + DisplayMarketingMessages() : void
 }
 
