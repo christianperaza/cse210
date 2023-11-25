@@ -1,6 +1,6 @@
 @startuml
 
-title Abstraction with YouTube Videos - Foundation 1
+title Abstraction with YouTube Videos - Foundation 1, by Christian Peraza, cse210
 
 class Video {
 + _title : string
