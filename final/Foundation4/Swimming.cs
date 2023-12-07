@@ -14,19 +14,19 @@ public class Swimming : Activity
     // methods...
 
     // distance overrided
-    public override decimal CalculateDistance()
+    public override double CalculateDistance()
     {
-        return decimal.Round(_swimmingLaps * 50 / 1000, 1);
+        return double.Round(_swimmingLaps * 50 / 1000, 1);
     }
 
     // speed overrided
-    public override decimal CalculateSpeed() {
-        return decimal.Round(CalculateDistance() / GetLengthInMinutes() * 60, 1);
+    public override double CalculateSpeed() {
+        return double.Round(CalculateDistance() / GetLengthInMinutes() * 60, 1);
     }
 
     // pace overrided
-    public override decimal CalculatePace()
+    public override double CalculatePace()
     {
-        return decimal.Round(60 / CalculateSpeed(), 1);
+        return double.Round(60 / CalculateSpeed(), 1);
     }
 }

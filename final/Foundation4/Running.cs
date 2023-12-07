@@ -1,10 +1,10 @@
 public class Running : Activity
 {
     // attribute...
-    private decimal _distanceRunning;
+    private double _distanceRunning;
 
     // constructor to set date, length, distance, and the type calling SetType method from base class...
-    public Running(string date, int lenght, decimal distance) : base(date, lenght)
+    public Running(string date, int lenght, double distance) : base(date, lenght)
     {
         SetType("Running");
 
@@ -14,19 +14,19 @@ public class Running : Activity
     // methods...
 
     // distance overrided
-    public override decimal CalculateDistance()
+    public override double CalculateDistance()
     {
-        return decimal.Round(_distanceRunning, 1);
+        return double.Round(_distanceRunning, 1);
     }
 
     // speed overrided
-    public override decimal CalculateSpeed() {
-        return decimal.Round(_distanceRunning / GetLengthInMinutes() * 60, 1);
+    public override double CalculateSpeed() {
+        return double.Round(_distanceRunning / GetLengthInMinutes() * 60, 1);
     }
 
     // pace overrided
-    public override decimal CalculatePace()
+    public override double CalculatePace()
     {
-        return decimal.Round(GetLengthInMinutes() / _distanceRunning, 1);
+        return double.Round(GetLengthInMinutes() / _distanceRunning, 1);
     }
 }

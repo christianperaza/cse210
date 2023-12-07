@@ -7,13 +7,13 @@ class Program
         // ----------- RUNNING ----------- //
         string dateRunning = "28 Nov 2023";
         int lengthInMinutesRunning = 30;
-        decimal distanceRunning = 3.0m;
+        double distanceRunning = 3.0;
         Running running = new Running(dateRunning, lengthInMinutesRunning, distanceRunning);
 
         // ----------- CYCLING ----------- //
         string dateCycling = "03 Dic 2023";
         int lengthInMinutesCycling = 45;
-        decimal speedCycling = 6.8m;
+        double speedCycling = 6.8;
         Cycling cycling = new Cycling(dateCycling, lengthInMinutesCycling, speedCycling);
 
         // ----------- SWIMMING ----------- //

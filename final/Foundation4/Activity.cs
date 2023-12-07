@@ -30,11 +30,11 @@ public abstract class Activity
     // abstract methods...
 
     // distance
-    public abstract decimal CalculateDistance();
+    public abstract double CalculateDistance();
     // speed
-    public abstract decimal CalculateSpeed(); 
+    public abstract double CalculateSpeed(); 
     // pace
-    public abstract decimal CalculatePace();
+    public abstract double CalculatePace();
 
     // get summary
     public void GetSummary()
